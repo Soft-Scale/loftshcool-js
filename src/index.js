@@ -25,14 +25,13 @@ function isAllTrue(array, fn) {
   if(array.length == 0){
     throw new Error('empty array');
   }
-  console.log(typeof Object.keys(array))
   // if (typeof Array.isArray(array)) {
   //   throw new Error('Is not array');
   // }
   return newArr;
 }
 
-isAllTrue([1,2,3,4,5,6,7], n => n < 20);
+// isAllTrue([1,2,3,4,5,6,7], n => n < 20);
 
 
 
@@ -54,6 +53,22 @@ isAllTrue([1,2,3,4,5,6,7], n => n < 20);
    isSomeTrue([1, 2, 3, 4, 5], n => n > 20) // вернет false
  */
 function isSomeTrue(array, fn) {
+
+  if (array.length === 0) {
+      throw new Error('empty array');
+  }
+
+  if (typeof fn !== 'function') {
+      throw new Error('fn is not a function');
+  }
+
+  if (array.some(fn)) {
+      return true;
+  }
+
+
+
+  return false;
 }
 
 /*
